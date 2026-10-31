@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#09090b">
+<title>قوانين وصلاحيات Onyx</title>
+<meta name="description" content="دليل الأونر: صلاحيات بوت Onyx المطلوبة، موقع رتبته، وقوانين الحماية.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2309090b'/%3E%3Cpath d='M32 10l18 7v13c0 12-8 20-18 24-10-4-18-12-18-24V17z' fill='none' stroke='%23ff3b57' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09090b; --bg2:#0d0d11; --panel:#121217; --panel2:#18181f;
+  --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+  --text:#ededf2; --mute:#a1a1b0; --dim:#74748a;
+  --red:#ff3b57; --red-d:#b3122c; --gold:#e8c777;
+  --ban:#ff4d67; --timeout:#ffab3d; --warn:#f2d54b; --del:#8fa6c9; --lock:#a98bff; --ok:#43d696; --alert:#5cb8ff;
+  --r:16px;
+  --display:"Cairo","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --body:"IBM Plex Sans Arabic","Cairo",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  background:var(--bg); color:var(--text); font-family:var(--body); font-size:16px; line-height:1.75;
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  background-image:
+    radial-gradient(900px 480px at 85% -8%, rgba(255,59,87,.16), transparent 60%),
+    radial-gradient(700px 420px at 5% 12%, rgba(169,139,255,.07), transparent 60%);
+  background-repeat:no-repeat;
+}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px;border-radius:8px}
+
+/* header */
+.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(9,9,11,.72);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.5px}
+.brand .mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#1d1d25,#101014);border:1px solid var(--line2);color:var(--red)}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:11px;color:var(--dim);letter-spacing:0;line-height:1.1}
+nav{display:flex;gap:4px}
+nav a{padding:8px 14px;border-radius:10px;color:var(--mute);font-size:14px;font-weight:500;transition:.2s}
+nav a:hover{color:var(--text);background:rgba(255,255,255,.05)}
+nav a.on{color:#fff;background:rgba(255,59,87,.14);box-shadow:inset 0 0 0 1px rgba(255,59,87,.35)}
+
+/* hero */
+.hero{padding:76px 0 56px;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--gold);background:rgba(232,199,119,.08);border:1px solid rgba(232,199,119,.25);padding:6px 14px;border-radius:999px;margin-bottom:22px}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.4vw,58px);line-height:1.25;letter-spacing:-.5px}
+h1 span{background:linear-gradient(100deg,#fff 10%,#ffb3be 45%,var(--red) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin-top:20px;color:var(--mute);font-size:18px;max-width:560px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:12px;font-weight:600;font-size:15px;transition:.2s;border:1px solid var(--line2);background:var(--panel)}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.3)}
+.btn.primary{background:linear-gradient(135deg,var(--red),var(--red-d));border-color:transparent;box-shadow:0 10px 30px -8px rgba(255,59,87,.55)}
+.btn.primary:hover{box-shadow:0 14px 36px -8px rgba(255,59,87,.7)}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.stat{padding:12px 18px;border-radius:14px;background:var(--panel);border:1px solid var(--line);min-width:112px}
+.stat b{display:block;font-family:var(--display);font-size:26px;line-height:1.2}
+.stat span{font-size:13px;color:var(--mute)}
+.art{position:relative;aspect-ratio:1;max-width:340px;width:100%;margin-inline:auto;display:grid;place-items:center}
+.art::before{content:"";position:absolute;inset:8%;border-radius:50%;background:radial-gradient(circle,rgba(255,59,87,.32),transparent 68%);filter:blur(18px)}
+.art svg{position:relative;width:100%;height:100%}
+.ring{transform-origin:200px 200px;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* sections */
+section.block{padding:56px 0}
+.sec-head{margin-bottom:30px;max-width:680px}
+.sec-head .no{font-family:var(--display);font-weight:800;color:var(--red);font-size:14px;letter-spacing:2px}
+.sec-head h2{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.6vw,38px);line-height:1.3;margin-top:4px}
+.sec-head p{color:var(--mute);margin-top:10px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:var(--r);padding:20px;transition:.25s}
+.card:hover{border-color:rgba(255,59,87,.4);transform:translateY(-3px)}
+.ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(255,59,87,.1);color:var(--red);border:1px solid rgba(255,59,87,.22);margin-bottom:14px}
+.card h3{font-family:var(--display);font-size:17px;font-weight:600}
+.card p{color:var(--mute);font-size:14px;margin-top:4px}
+.note{margin-top:18px;display:flex;gap:12px;align-items:flex-start;padding:14px 18px;border-radius:14px;background:rgba(92,184,255,.07);border:1px solid rgba(92,184,255,.22);color:#cfe8ff;font-size:14px}
+.note svg{flex:none;margin-top:3px;color:var(--alert)}
+
+/* role stack */
+.roles{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.stack{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px}
+.stack h3,.warns h3{font-family:var(--display);font-size:16px;font-weight:600;color:var(--mute);margin-bottom:4px}
+.role{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-radius:12px;background:var(--panel2);border:1px solid var(--line);font-weight:500}
+.role small{color:var(--dim);font-weight:400;font-size:12px}
+.role.me{background:linear-gradient(135deg,rgba(255,59,87,.2),rgba(255,59,87,.06));border-color:rgba(255,59,87,.6);box-shadow:0 0 0 1px rgba(255,59,87,.25),0 12px 34px -14px rgba(255,59,87,.6);color:#fff}
+.role.me small{color:#ffc2cb}
+.role.below{opacity:.62}
+.gap{height:4px;margin-inline:auto;width:2px;background:repeating-linear-gradient(var(--line2) 0 4px,transparent 4px 8px);min-height:14px}
+.warns{display:flex;flex-direction:column;gap:12px}
+.warn{padding:18px 20px;border-radius:var(--r);background:var(--panel);border:1px solid var(--line)}
+.warn.hot{background:linear-gradient(180deg,rgba(255,171,61,.1),rgba(255,171,61,.03));border-color:rgba(255,171,61,.4)}
+.warn b{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:16px}
+.warn.hot b{color:var(--timeout)}
+.warn p{color:var(--mute);font-size:14.5px;margin-top:6px}
+.steps{margin-top:8px;padding-inline-start:20px;color:var(--mute);font-size:14.5px}
+.steps li{margin-top:4px}
+.steps b{display:inline;font-family:var(--body);font-size:inherit;color:var(--text)}
+
+/* rules */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{font-family:var(--body);font-size:14px;font-weight:500;padding:9px 18px;border-radius:999px;border:1px solid var(--line2);background:var(--panel);color:var(--mute);cursor:pointer;transition:.2s}
+.chip:hover{color:var(--text)}
+.chip[aria-pressed="true"]{background:rgba(255,59,87,.15);border-color:rgba(255,59,87,.6);color:#fff}
+.group{margin-bottom:28px}
+.group h3{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:19px;font-weight:600;margin-bottom:12px}
+.group h3 .ico{width:34px;height:34px;margin:0;border-radius:10px}
+.group h3 em{font-style:normal;font-size:12px;color:var(--dim);font-family:var(--body);font-weight:400;margin-inline-start:auto}
+.group .sub{color:var(--dim);font-size:13px;margin:-4px 0 12px}
+ul.rules{list-style:none;display:grid;gap:8px}
+.rule{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:14px;padding:14px 18px;border-radius:14px;background:var(--panel);border:1px solid var(--line);transition:.2s}
+.rule:hover{background:var(--panel2);border-color:var(--line2)}
+.rule .arrow{color:var(--dim);font-size:18px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-start}
+.badge{font-size:13px;font-weight:600;padding:5px 12px;border-radius:9px;white-space:nowrap;border:1px solid currentColor;background:color-mix(in srgb,currentColor 12%,transparent)}
+.ban{color:var(--ban)}.timeout{color:var(--timeout)}.warnb{color:var(--warn)}.del{color:var(--del)}.lock{color:var(--lock)}.ok{color:var(--ok)}.alertb{color:var(--alert)}
+.rule small{display:block;color:var(--dim);font-size:12.5px;line-height:1.5;margin-top:2px}
+
+/* exceptions */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ex{padding:22px;border-radius:var(--r);background:var(--panel);border:1px solid var(--line)}
+.ex .ico{background:rgba(67,214,150,.1);color:var(--ok);border-color:rgba(67,214,150,.28)}
+.ex h3{font-family:var(--display);font-size:18px;font-weight:600}
+.ex p{color:var(--mute);font-size:15px;margin-top:6px}
+
+footer{margin-top:40px;border-top:1px solid var(--line);padding:30px 0 44px;color:var(--dim);font-size:13.5px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.ring{animation:none}
+  .card:hover,.btn:hover{transform:none}
+}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:48px}
+  .art{max-width:240px;order:-1}
+  .grid{grid-template-columns:1fr 1fr}
+  .roles,.two{grid-template-columns:1fr}
+  nav a{padding:8px 10px;font-size:13px}
+}
+@media (max-width:620px){
+  .top .wrap{height:auto;padding-block:12px;flex-direction:column;align-items:flex-start;gap:8px}
+  nav{width:100%;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+  nav::-webkit-scrollbar{display:none}
+  nav a{white-space:nowrap}
+  html{scroll-padding-top:120px}
+  .grid{grid-template-columns:1fr}
+  .rule{grid-template-columns:1fr;gap:8px}
+  .rule .arrow{display:none}
+  .lead{font-size:16.5px}
+  section.block{padding:40px 0}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+    <symbol id="i-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></symbol>
+    <symbol id="i-kick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M21 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-hash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16M4 15h16M10 3L8 21M16 3l-2 18"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><path d="M6 7h.01M6 17h.01"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 17h6"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l4 4 5-7 5 7 4-4-2 11H5z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Onyx">
+      <span class="mark"><svg width="20" height="20"><use href="#i-shield"/></svg></span>
+      <span>ONYX<small>دليل الأونر</small></span>
+    </a>
+    <nav aria-label="أقسام الصفحة">
+      <a href="#perms">الصلاحيات</a>
+      <a href="#role">رتبة البوت</a>
+      <a href="#rules">القوانين</a>
+      <a href="#exceptions">الاستثناءات</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<div class="wrap">
+
+  <div class="hero">
+    <div class="reveal">
+      <span class="eyebrow"><i></i> دليل الأونر</span>
+      <h1>قوانين وصلاحيات <span>Onyx</span></h1>
+      <p class="lead">كل شي تحتاج تعرفه بعد إضافة البوت لسيرفرك: الصلاحيات المطلوبة، مكان رتبته، وقوانين الحماية اللي يطبّقها تلقائياً.</p>
+      <div class="cta">
+        <a class="btn primary" href="#perms">ابدأ من الصلاحيات</a>
+        <a class="btn" href="#rules">شوف القوانين</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>9</b><span>صلاحيات مطلوبة</span></div>
+        <div class="stat"><b>5</b><span>أقسام حماية</span></div>
+        <div class="stat"><b>23</b><span>قاعدة واضحة</span></div>
+      </div>
+    </div>
+    <div class="art reveal" aria-hidden="true">
+      <svg viewBox="0 0 400 400" fill="none">
+        <defs>
+          <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff6b81"/><stop offset="1" stop-color="#b3122c"/></linearGradient>
+          <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e1e27"/><stop offset="1" stop-color="#0f0f14"/></linearGradient>
+        </defs>
+        <g class="ring">
+          <circle cx="200" cy="200" r="178" stroke="rgba(255,255,255,.1)" stroke-dasharray="3 9"/>
+          <circle cx="200" cy="22" r="6" fill="#ff3b57"/>
+          <circle cx="378" cy="200" r="4" fill="#e8c777"/>
+          <circle cx="62" cy="326" r="4" fill="#a98bff"/>
+        </g>
+        <circle cx="200" cy="200" r="138" stroke="rgba(255,59,87,.3)"/>
+        <path d="M200 92l86 33v62c0 62-38 98-86 114-48-16-86-52-86-114v-62z" fill="url(#g2)" stroke="url(#g1)" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M200 124l58 22v44c0 42-25 66-58 78-33-12-58-36-58-78v-44z" fill="rgba(255,59,87,.08)" stroke="rgba(255,255,255,.12)"/>
+        <path d="M170 204l22 22 40-46" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- 1. permissions -->
+  <section class="block" id="perms" data-spy>
+    <div class="sec-head reveal">
+      <div class="no">01</div>
+      <h2>الصلاحيات اللي يحتاجها البوت</h2>
+      <p>بدونها تتعطل الحماية جزئياً. لو نقصت وحدة، يرسل لك البوت تنبيه بالخاص.</p>
+    </div>
+    <div class="grid">
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-file"/></svg></div><h3>عرض سجل التدقيق</h3><p>يعرف مين نفّذ كل عملية.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-ban"/></svg></div><h3>حظر الأعضاء</h3><p>لتنفيذ الباند على المخربين.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-kick"/></svg></div><h3>طرد الأعضاء</h3><p>لمعالجة المخالفات.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-users"/></svg></div><h3>إدارة الرتب</h3><p>لمراقبة الرتب ومنح الصلاحيات.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-hash"/></svg></div><h3>إدارة الرومات</h3><p>لإنشاء رومات البوت وحمايتها.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-msg"/></svg></div><h3>إدارة الرسائل</h3><p>لحذف الروابط والسبام.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-clock"/></svg></div><h3>الإشراف على الأعضاء</h3><p>لإعطاء تايم آوت (كتم مؤقت).</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-link"/></svg></div><h3>إدارة الويب هوك</h3><p>لكشف التكاملات المشبوهة.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-server"/></svg></div><h3>إدارة السيرفر</h3><p>لقفل السيرفر وقت الغارات.</p></div>
+    </div>
+  </section>
+
+  <!-- 2. role -->
+  <section class="block" id="role" data-spy>
+    <div class="sec-head reveal">
+      <div class="no">02</div>
+      <h2>مكان رتبة البوت</h2>
+      <p>أهم خطوة بعد الإضافة. رتبة أقل من اللازم تعني حماية لا تقدر تنفّذ.</p>
+    </div>
+    <div class="roles">
+      <div class="stack reveal">
+        <h3>ترتيب الرتب في السيرفر (من الأعلى)</h3>
+        <div class="role"><span>أنت (الأونر)</span><small>فوق الجميع</small></div>
+        <div class="gap"></div>
+        <div class="role me"><span>Onyx</span><small>ضعه هنا ⬅ أعلى رتبة</small></div>
+        <div class="gap"></div>
+        <div class="role below"><span>الأدمن</span><small>تحت البوت</small></div>
+        <div class="role below"><span>المشرفين</span><small>تحت البوت</small></div>
+        <div class="role below"><span>الأعضاء</span><small>تحت البوت</small></div>
+      </div>
+      <div class="warns">
+        <div class="warn hot reveal">
+          <b><svg width="20" height="20"><use href="#i-alert"/></svg> ارفع رتبة Onyx لأعلى رتبة</b>
+          <p>Discord ما يسمح للبوت يبند أو يكتم أو يعدّل أي عضو أو رتبة أعلى من رتبته. لو كانت رتبته تحت رتبة أدمن، ما يقدر يعاقبه.</p>
+        </div>
+        <div class="warn reveal">
+          <b><svg width="20" height="20"><use href="#i-info"/></svg> كيف أرفعها؟</b>
+          <ol class="steps">
+            <li>إعدادات السيرفر ← <b>الرتب</b>.</li>
+            <li>اسحب رتبة <b>Onyx</b> لأعلى القائمة.</li>
+            <li>خلّها تحت حسابك فقط.</li>
+          </ol>
+        </div>
+        <div class="warn reveal">
+          <b><svg width="20" height="20"><use href="#i-info"/></svg> قيد من Discord</b>
+          <p>حتى بأعلى رتبة، Discord ما يسمح بتايم آوت لمن معه صلاحية Administrator ولا للأونر.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. rules -->
+  <section class="block" id="rules" data-spy>
+    <div class="sec-head reveal">
+      <div class="no">03</div>
+      <h2>قوانين الحماية</h2>
+      <p>الحدود مأخوذة من إعدادات البوت الحالية، وتنطبق تلقائياً بدون تدخل منك.</p>
+    </div>
+
+    <div class="chips" role="group" aria-label="تصفية القوانين">
+      <button class="chip" data-f="all" aria-pressed="true">الكل</button>
+      <button class="chip" data-f="admin" aria-pressed="false">الأدمن</button>
+      <button class="chip" data-f="bots" aria-pressed="false">البوتات</button>
+      <button class="chip" data-f="members" aria-pressed="false">الأعضاء</button>
+      <button class="chip" data-f="raid" aria-pressed="false">الغارات</button>
+      <button class="chip" data-f="alerts" aria-pressed="false">التنبيهات</button>
+    </div>
+
+    <div class="group reveal" data-cat="admin">
+      <h3><span class="ico"><svg width="18" height="18"><use href="#i-crown"/></svg></span>الأدمن <em>خلال 24 ساعة</em></h3>
+      <ul class="rules">
+        <li class="rule"><div>باند أو طرد عضوين</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
+        <li class="rule"><div>حذف روم أو رول مرتين</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
+        <li class="rule"><div>نقاط الإساءة تصل 4<small>باند / طرد / حذف روم / حذف رول = 2 نقطة، تايم آوت = 1 نقطة</small></div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
+        <li class="rule"><div>تايم آوت لـ 3 أعضاء</div><span class="arrow">←</span><div class="badges"><span class="badge timeout">فك التايم آوت</span><span class="badge alertb">تنبيه لك</span></div></li>
+        <li class="rule"><div>إنشاء روم بدون صلاحية</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف الروم</span><span class="badge ban">باند</span></div></li>
+        <li class="rule"><div>حذف رتبة البوت</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند</span></div></li>
+      </ul>
+    </div>
+
+    <div class="group reveal" data-cat="bots">
+      <h3><span class="ico"><svg width="18" height="18"><use href="#i-bot"/></svg></span>البوتات</h3>
+      <ul class="rules">
+        <li class="rule"><div>إضافة بوت من غير الأونر أو أدمن موثّق</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للبوت</span><span class="badge ban">باند لمن أضافه</span></div></li>
+        <li class="rule"><div>البوتات الموثّقة من الداشبورد</div><span class="arrow">←</span><div class="badges"><span class="badge ok">مسموحة</span></div></li>
+        <li class="rule"><div>دخول 3 بوتات خلال 30 ثانية</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند لهم</span><span class="badge lock">قفل السيرفر</span></div></li>
+        <li class="rule"><div>بوت ينشئ 5 رومات أو رولات خلال دقيقة</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للبوت</span><span class="badge lock">قفل السيرفر</span></div></li>
+        <li class="rule"><div>لو ما قدر البوت يعرف من أضاف البوت الجديد</div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه لك فقط</span></div></li>
+      </ul>
+    </div>
+
+    <div class="group reveal" data-cat="members">
+      <h3><span class="ico"><svg width="18" height="18"><use href="#i-user"/></svg></span>الأعضاء</h3>
+      <ul class="rules">
+        <li class="rule"><div>الكتابة في روم الـ Honeypot (روم الفخ)</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند فوري</span></div></li>
+        <li class="rule"><div>روابط دعوات أو روابط مختصرة<small>مثل discord.gg و bit.ly</small></div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge ban">باند نهائي</span></div></li>
+        <li class="rule"><div>حساب عمره أقل من 7 أيام ينشر رابط</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge warnb">تحذير</span></div></li>
+        <li class="rule"><div>نفس المرفق في 3 رومات خلال دقيقتين</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge timeout">تايم آوت يوم</span><span class="badge alertb">تنبيه لك</span></div></li>
+        <li class="rule"><div>5 رسائل خلال 10 ثواني</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف رسائله</span><span class="badge timeout">تايم آوت 30 دقيقة</span></div></li>
+        <li class="rule"><div>عبارة محظورة</div><span class="arrow">←</span><div class="badges"><span class="badge warnb">تحذير</span><span class="badge timeout">أو تايم آوت</span><span class="badge ban">أو باند</span></div></li>
+        <li class="rule"><div>أمر بعلامة ! من غير الأونر</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge warnb">تحذير</span></div></li>
+      </ul>
+    </div>
+
+    <div class="group reveal" data-cat="raid">
+      <h3><span class="ico"><svg width="18" height="18"><use href="#i-bolt"/></svg></span>الغارات</h3>
+      <ul class="rules">
+        <li class="rule"><div>دخول 10 أعضاء خلال 15 ثانية</div><span class="arrow">←</span><div class="badges"><span class="badge lock">قفل السيرفر</span><span class="badge ok">يُفتح بعد 10 دقائق</span></div></li>
+      </ul>
+    </div>
+
+    <div class="group reveal" data-cat="alerts">
+      <h3><span class="ico"><svg width="18" height="18"><use href="#i-bell"/></svg></span>تنبيهات تصلك بالخاص</h3>
+      <ul class="rules">
+        <li class="rule"><div>إعطاء رول بصلاحيات خطيرة لعضو</div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه</span></div></li>
+        <li class="rule"><div>منح صلاحيات إدارية على روم</div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه</span></div></li>
+        <li class="rule"><div>نقص صلاحيات البوت أو مشاكل في رومات الحماية</div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه</span></div></li>
+        <li class="rule"><div>5 عمليات تخريبية من حسابك خلال 10 دقائق<small>احتمال أن حسابك مخترق</small></div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. exceptions -->
+  <section class="block" id="exceptions" data-spy>
+    <div class="sec-head reveal">
+      <div class="no">04</div>
+      <h2>الاستثناءات</h2>
+      <p>من هو المحمي من هذي القوانين.</p>
+    </div>
+    <div class="two">
+      <div class="ex reveal"><div class="ico"><svg width="22" height="22"><use href="#i-crown"/></svg></div><h3>الأونر</h3><p>معفي من الباند.</p></div>
+      <div class="ex reveal"><div class="ico"><svg width="22" height="22"><use href="#i-shield"/></svg></div><h3>الأدمن الموثّق</h3><p>معفي من قوانين الأدمن والبوتات. قوانين الرسائل (الروابط والسبام) تنطبق عليه.</p></div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Onyx • دليل الأونر</span>
+    <span>آخر تحديث 2026-10-31</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var items = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.08});
+    items.forEach(function(el){ io.observe(el); });
+  }
+
+  var links = document.querySelectorAll('nav a');
+  var secs = document.querySelectorAll('section[data-spy]');
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){
+          links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); });
+        }
+      });
+    }, {rootMargin:'-30% 0px -60% 0px'});
+    secs.forEach(function(s){ so.observe(s); });
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      var t = document.getElementById(a.getAttribute('href').slice(1));
+      if (!t) return;
+      ev.preventDefault();
+      t.scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'start'});
+    });
+  });
+
+  var chips = document.querySelectorAll('.chip');
+  var groups = document.querySelectorAll('.group');
+  chips.forEach(function(c){
+    c.addEventListener('click', function(){
+      var f = c.getAttribute('data-f');
+      chips.forEach(function(x){ x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
+      groups.forEach(function(g){
+        g.hidden = !(f === 'all' || g.getAttribute('data-cat') === f);
+      });
+    });
+  });
+})();
+</script>
+</body>
+</html>
