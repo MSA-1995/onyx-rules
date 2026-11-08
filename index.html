@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#09090b">
-<title>قوانين وصلاحيات Onyx</title>
-<meta name="description" content="دليل الأونر: صلاحيات بوت Onyx المطلوبة، موقع رتبته، وقوانين الحماية.">
+<title>كتالوج Onyx</title>
+<meta name="description" content="كتالوج Onyx: الصلاحيات المطلوبة، موقع الرتبة، تشغيل المميزات، وقوانين الحماية.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2309090b'/%3E%3Cpath d='M32 10l18 7v13c0 12-8 20-18 24-10-4-18-12-18-24V17z' fill='none' stroke='%23ff3b57' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -188,11 +188,12 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Onyx">
       <span class="mark"><svg width="20" height="20"><use href="#i-shield"/></svg></span>
-      <span>ONYX<small>دليل الأونر</small></span>
+      <span>Onyx<small>الكتالوج</small></span>
     </a>
     <nav aria-label="أقسام الصفحة">
       <a href="#perms">الصلاحيات</a>
       <a href="#role">رتبة البوت</a>
+      <a href="#features">المميزات</a>
       <a href="#rules">القوانين</a>
       <a href="#exceptions">الاستثناءات</a>
     </nav>
@@ -205,16 +206,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   <div class="hero">
     <div class="reveal">
       <span class="eyebrow"><i></i> دليل الأونر</span>
-      <h1>قوانين وصلاحيات <span>Onyx</span></h1>
-      <p class="lead">كل شي تحتاج تعرفه بعد إضافة البوت لسيرفرك: الصلاحيات المطلوبة، مكان رتبته، وقوانين الحماية اللي يطبّقها تلقائياً.</p>
+      <h1>كتالوج <span>Onyx</span></h1>
+      <p class="lead">كل شي تحتاج تعرفه بعد إضافة البوت لسيرفرك: الصلاحيات المطلوبة، مكان رتبته، طريقة تشغيل المميزات، وقوانين الحماية اللي يطبّقها تلقائياً.</p>
       <div class="cta">
         <a class="btn primary" href="#perms">ابدأ من الصلاحيات</a>
-        <a class="btn" href="#rules">شوف القوانين</a>
+        <a class="btn" href="#features">شغّل المميزات</a>
       </div>
       <div class="stats">
         <div class="stat"><b>9</b><span>صلاحيات مطلوبة</span></div>
-        <div class="stat"><b>5</b><span>أقسام حماية</span></div>
-        <div class="stat"><b>23</b><span>قاعدة واضحة</span></div>
+        <div class="stat"><b>7</b><span>مميزات</span></div>
+        <div class="stat"><b>26</b><span>قاعدة حماية</span></div>
       </div>
     </div>
     <div class="art reveal" aria-hidden="true">
@@ -296,12 +297,43 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     </div>
   </section>
 
-  <!-- 3. rules -->
-  <section class="block" id="rules" data-spy>
+  <!-- 3. features -->
+  <section class="block" id="features" data-spy>
     <div class="sec-head reveal">
       <div class="no">03</div>
+      <h2>تشغيل المميزات</h2>
+      <p>كل المميزات متوقفة افتراضياً في أي سيرفر جديد، وأنت تختار اللي تبغاه وتشغّله بضغطة.</p>
+    </div>
+    <div class="warns">
+      <div class="warn hot reveal">
+        <b><svg width="20" height="20"><use href="#i-bolt"/></svg> كيف أشغّل ميزة؟</b>
+        <ol class="steps">
+          <li>افتح <b>الداشبورد</b> (روم لوحة التحكم).</li>
+          <li>اختر <b>إدارة المميزات</b> من القائمة ثم اضغط <b>تنفيذ الأمر</b>.</li>
+          <li>اختر الميزة اللي تبغاها من القائمة.</li>
+          <li>اضغط <b>تشغيل</b>. وللإيقاف نفس الخطوات ثم <b>إيقاف</b>.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="grid" style="margin-top:14px">
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-bell"/></svg></div><h3>الأذكار</h3><p>ذكر أو آية أو حديث كل ساعة في روم الأذكار.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-bolt"/></svg></div><h3>فقاعات الأذكار</h3><p>فقاعات ملونة، اضغط أي فقاعة وتنفجر ويطلع لك ذكر.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-server"/></svg></div><h3>أخبار تحديثات البي سي</h3><p>تحديثات الدرايفرات وويندوز في روم تحديثات الجهاز.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-link"/></svg></div><h3>أخبار الألعاب المجانية</h3><p>الألعاب المجانية من المتاجر في روم الألعاب المجانية.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-users"/></svg></div><h3>لعبة الأسئلة</h3><p>لعبة أسئلة جماعية بالأزرار في روم اللعبة.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-crown"/></svg></div><h3>لوحة المتصدرين</h3><p>أفضل ثلاثة لاعبين بعد كل لعبة.</p></div>
+      <div class="card reveal"><div class="ico"><svg width="22" height="22"><use href="#i-shield"/></svg></div><h3>الأوامر الخاصة</h3><p>روم محمي برمز سري تحفظ فيه نصوصك وروابطك.</p></div>
+    </div>
+    <div class="note reveal"><svg width="18" height="18"><use href="#i-info"/></svg><span><b>الرومات:</b> عيّن روم كل ميزة من <b>إعداد الرومات</b> في الداشبورد. وللأوامر الخاصة عيّن رمزها أولاً من <b>رمز الأوامر الخاصة</b>.</span></div>
+    <div class="note reveal"><svg width="18" height="18"><use href="#i-info"/></svg><span><b>الإيقاف آمن:</b> إيقاف الميزة يخفي حاويتها فقط، وبياناتها (مثل نقاط اللعبة وأوامرك الخاصة) تبقى محفوظة وترجع عند التشغيل.</span></div>
+  </section>
+
+  <!-- 4. rules -->
+  <section class="block" id="rules" data-spy>
+    <div class="sec-head reveal">
+      <div class="no">04</div>
       <h2>قوانين الحماية</h2>
-      <p>الحدود مأخوذة من إعدادات البوت الحالية، وتنطبق تلقائياً بدون تدخل منك.</p>
+      <p>تنطبق تلقائياً بدون تدخل منك.</p>
     </div>
 
     <div class="chips" role="group" aria-label="تصفية القوانين">
@@ -316,11 +348,14 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <div class="group reveal" data-cat="admin">
       <h3><span class="ico"><svg width="18" height="18"><use href="#i-crown"/></svg></span>الأدمن <em>خلال 24 ساعة</em></h3>
       <ul class="rules">
-        <li class="rule"><div>باند أو طرد عضوين</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
-        <li class="rule"><div>حذف روم أو رول مرتين</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
-        <li class="rule"><div>نقاط الإساءة تصل 4<small>باند / طرد / حذف روم / حذف رول = 2 نقطة، تايم آوت = 1 نقطة</small></div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
-        <li class="rule"><div>تايم آوت لـ 3 أعضاء</div><span class="arrow">←</span><div class="badges"><span class="badge timeout">فك التايم آوت</span><span class="badge alertb">تنبيه لك</span></div></li>
+        <li class="rule"><div>باند أو طرد أعضاء بشكل متكرر</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
+        <li class="rule"><div>حذف روم أو رول بشكل متكرر</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
+        <li class="rule"><div>تراكم الإساءة خلال 24 ساعة<small>الباند والطرد وحذف الرومات والرولات أثقل من التايم آوت</small></div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
+        <li class="rule"><div>تايم آوت لعدة أعضاء</div><span class="arrow">←</span><div class="badges"><span class="badge timeout">فك التايم آوت</span><span class="badge alertb">تنبيه لك</span></div></li>
         <li class="rule"><div>إنشاء روم بدون صلاحية</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف الروم</span><span class="badge ban">باند</span></div></li>
+        <li class="rule"><div>حذف روم أو رول من غير موثّق</div><span class="arrow">←</span><div class="badges"><span class="badge ok">يُعاد تلقائياً</span><span class="badge alertb">تسجيل في اللوق</span></div></li>
+        <li class="rule"><div>حذف إيموجي أو ستيكرات بشكل متكرر</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
+        <li class="rule"><div>تنظيف الأعضاء (Prune) من غير موثّق</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للأدمن</span></div></li>
         <li class="rule"><div>حذف رتبة البوت</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند</span></div></li>
       </ul>
     </div>
@@ -330,8 +365,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <ul class="rules">
         <li class="rule"><div>إضافة بوت من غير الأونر أو أدمن موثّق</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للبوت</span><span class="badge ban">باند لمن أضافه</span></div></li>
         <li class="rule"><div>البوتات الموثّقة من الداشبورد</div><span class="arrow">←</span><div class="badges"><span class="badge ok">مسموحة</span></div></li>
-        <li class="rule"><div>دخول 3 بوتات خلال 30 ثانية</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند لهم</span><span class="badge lock">قفل السيرفر</span></div></li>
-        <li class="rule"><div>بوت ينشئ 5 رومات أو رولات خلال دقيقة</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للبوت</span><span class="badge lock">قفل السيرفر</span></div></li>
+        <li class="rule"><div>دخول عدة بوتات خلال وقت قصير</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند لهم</span><span class="badge lock">قفل السيرفر</span></div></li>
+        <li class="rule"><div>بوت ينشئ رومات أو رولات بسرعة</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند للبوت</span><span class="badge lock">قفل السيرفر</span></div></li>
         <li class="rule"><div>لو ما قدر البوت يعرف من أضاف البوت الجديد</div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه لك فقط</span></div></li>
       </ul>
     </div>
@@ -341,9 +376,9 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
       <ul class="rules">
         <li class="rule"><div>الكتابة في روم الـ Honeypot (روم الفخ)</div><span class="arrow">←</span><div class="badges"><span class="badge ban">باند فوري</span></div></li>
         <li class="rule"><div>روابط دعوات أو روابط مختصرة<small>مثل discord.gg و bit.ly</small></div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge ban">باند نهائي</span></div></li>
-        <li class="rule"><div>حساب عمره أقل من 7 أيام ينشر رابط</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge warnb">تحذير</span></div></li>
-        <li class="rule"><div>نفس المرفق في 3 رومات خلال دقيقتين</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge timeout">تايم آوت يوم</span><span class="badge alertb">تنبيه لك</span></div></li>
-        <li class="rule"><div>5 رسائل خلال 10 ثواني</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف رسائله</span><span class="badge timeout">تايم آوت 30 دقيقة</span></div></li>
+        <li class="rule"><div>حساب جديد ينشر رابط</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge warnb">تحذير</span></div></li>
+        <li class="rule"><div>نفس المرفق في عدة رومات خلال وقت قصير</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge timeout">تايم آوت يوم</span><span class="badge alertb">تنبيه لك</span></div></li>
+        <li class="rule"><div>سبام رسائل متتالية</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف رسائله</span><span class="badge timeout">تايم آوت 30 دقيقة</span></div></li>
         <li class="rule"><div>عبارة محظورة</div><span class="arrow">←</span><div class="badges"><span class="badge warnb">تحذير</span><span class="badge timeout">أو تايم آوت</span><span class="badge ban">أو باند</span></div></li>
         <li class="rule"><div>أمر بعلامة ! من غير الأونر</div><span class="arrow">←</span><div class="badges"><span class="badge del">حذف</span><span class="badge warnb">تحذير</span></div></li>
       </ul>
@@ -352,7 +387,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
     <div class="group reveal" data-cat="raid">
       <h3><span class="ico"><svg width="18" height="18"><use href="#i-bolt"/></svg></span>الغارات</h3>
       <ul class="rules">
-        <li class="rule"><div>دخول 10 أعضاء خلال 15 ثانية</div><span class="arrow">←</span><div class="badges"><span class="badge lock">قفل السيرفر</span><span class="badge ok">يُفتح بعد 10 دقائق</span></div></li>
+        <li class="rule"><div>دخول عدد كبير من الأعضاء خلال ثواني</div><span class="arrow">←</span><div class="badges"><span class="badge lock">قفل السيرفر</span><span class="badge ok">يُفتح تلقائياً بعد مدة</span></div></li>
       </ul>
     </div>
 
@@ -362,15 +397,15 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
         <li class="rule"><div>إعطاء رول بصلاحيات خطيرة لعضو</div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه</span></div></li>
         <li class="rule"><div>منح صلاحيات إدارية على روم</div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه</span></div></li>
         <li class="rule"><div>نقص صلاحيات البوت أو مشاكل في رومات الحماية</div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه</span></div></li>
-        <li class="rule"><div>5 عمليات تخريبية من حسابك خلال 10 دقائق<small>احتمال أن حسابك مخترق</small></div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه</span></div></li>
+        <li class="rule"><div>عمليات تخريبية متتالية من حسابك<small>احتمال أن حسابك مخترق</small></div><span class="arrow">←</span><div class="badges"><span class="badge alertb">تنبيه</span></div></li>
       </ul>
     </div>
   </section>
 
-  <!-- 4. exceptions -->
+  <!-- 5. exceptions -->
   <section class="block" id="exceptions" data-spy>
     <div class="sec-head reveal">
-      <div class="no">04</div>
+      <div class="no">05</div>
       <h2>الاستثناءات والتوثيق</h2>
       <p>من هو المحمي من هذي القوانين، وكيف توثّق أدمن أو بوت.</p>
     </div>
@@ -408,8 +443,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
 <footer>
   <div class="wrap">
-    <span>Onyx • دليل الأونر</span>
-    <span>آخر تحديث 2026-10-31</span>
+    <span>Onyx • الكتالوج</span>
+    <span>آخر تحديث 2026-11-08</span>
   </div>
 </footer>
 
